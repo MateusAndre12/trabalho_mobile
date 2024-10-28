@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <div style="font-size: 20px; font-weight: bold; margin-left:6%;">
+        <p style="font-weight: bold; color:black">Criar Estoque</p>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <div style="padding: 20px;">
+      <ion-card-subtitle class="label">Nome do estoque:</ion-card-subtitle>
+      <br>
+      <ion-card-subtitle>
+        <ion-input placeholder="Nome:" [(ngModel)]="estoque.nome"></ion-input>
+      </ion-card-subtitle>
+    </div>
+  </ion-card>
+
+  <div style="margin-top: 30px;">
+    <ion-button class="salvar-button" fill="block" (click)="saveEstoque()">
+      {{ isEditing ? 'Alterar Estoque' : 'Criar Estoque' }}
+    </ion-button>
+  </div>
+
+  <!-- Listagem de Estoques -->
+  <ion-card *ngIf="estoques.length > 0">
+    <ion-card-header>
+      <ion-card-title>Lista de Estoques</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let estoque of estoques">
+          <ion-label>
+            <h2>{{ estoque.nome }}</h2>
+          </ion-label>
+          <ion-button color="primary" (click)="editEstoque(estoque)">Editar</ion-button>
+          <ion-button color="danger" (click)="deleteEstoque(estoque.id_estoque)">Excluir</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

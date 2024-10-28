@@ -1,0 +1,7 @@
+{
+  "name": "ControleDeEstoqueApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

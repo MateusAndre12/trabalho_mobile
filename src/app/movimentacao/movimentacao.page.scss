@@ -1,0 +1,31 @@
+.title-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .icon-style {
+    font-size: 32px;
+    color: #f4a261;
+  }
+  
+  .custom-tab-bar {
+    background-color: #c18a5c;
+    border-radius: 25px;
+    margin: 0 10px 20px 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  ion-tab-button {
+    --color-selected: white;
+    color: #f4e7d4;
+  }
+  
+  ion-note {
+    font-size: 0.9em;
+    color: #8a8a8a;
+  }
+  

@@ -1,0 +1,28 @@
+ion-toolbar {
+    --color: black;
+    font-weight: bold;
+    height: 20%;
+    align-content: end;
+    --background: #FFFFFF;
+ }
+ ion-content{
+   --background: #F4F5F9;
+ }
+ .category-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+    border-radius: 50%;
+    background-color: #FFE2A8; /* Ajuste a cor de fundo conforme necessário */
+    width: 80px;
+    height: 80px;
+    min-width: 60px; /* Garante que todos os botões tenham a mesma largura mínima */
+  }
+
+ .more-button{
+     width: 60px;
+     height: 60px;
+  }
+ 

@@ -1,0 +1,33 @@
+ion-tab-bar {
+    --background: transparent; /* Remover o fundo padrão */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a9785a; /* Cor de fundo marrom */
+    border-radius: 30px; /* Bordas arredondadas */
+    padding: 5px 20px; /* Espaçamento interno */
+    margin: 0 20px; /* Espaçamento externo */
+    height: 50px; /* Altura do menu */
+    //max-width: 600px; /* Largura máxima do menu */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  ion-tabs{
+    padding-bottom: 3%;
+  }
+  ion-tab-button {
+    --color: #f5ebda; /* Cor dos ícones */
+    --color-selected: #f5ebda; /* Cor do ícone selecionado */
+    flex-grow: 1; /* Faz os botões crescerem igualmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto; /* Ajuste automático da largura */
+    padding: 5px; /* Espaçamento interno */
+  }
+  
+  ion-tab-button ion-icon,
+  ion-tab-button img {
+    width: 24px; /* Tamanho dos ícones */
+    height: 24px;
+  }
+  

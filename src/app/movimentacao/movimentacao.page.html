@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title-header">Histórico</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <!-- Outubro Section -->
+    <ion-item-divider color="light">
+      <ion-label>Outubro</ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-icon name="archive-outline" class="icon-style"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>Estoque Criado</h2>
+        <p>Estoque X Criado</p>
+        <p>Criado por Administrador</p>
+      </ion-label>
+      <ion-note slot="end">Segunda, 01/10/2024</ion-note>
+    </ion-item>
+
+    <!-- Setembro Section -->
+    <ion-item-divider color="light">
+      <ion-label>Setembro</ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-icon name="list-outline" class="icon-style"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>Categoria Criada</h2>
+        <p>Categoria "Bebidas" Criada</p>
+        <p>Criado por Administrador</p>
+      </ion-label>
+      <ion-note slot="end">Terça, 25/09/2024</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-icon name="restaurant-outline" class="icon-style"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>Produto Criado - Categoria Frutas</h2>
+        <p>Produto "Maçã" Criado</p>
+        <p>Criado por Administrador</p>
+      </ion-label>
+      <ion-note slot="end">Sexta, 14/09/2024</ion-note>
+    </ion-item>
+
+  </ion-list>
+</ion-content>
