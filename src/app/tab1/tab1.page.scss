@@ -1,88 +1,91 @@
-ion-card{
-    background-color: #FFF2D4;
-    color: #451B05;
-    padding: 20px; 
-    border-radius: 12px;
+ion-card {
+  background-color: #FFFFFF; /* Fundo branco */
+  color: #000000; /* Texto preto */
+  padding: 20px;
+  border-radius: 12px;
 }
 
-ion-searchbar{
-padding-top: 2%;
+ion-searchbar {
+  padding-top: 2%;
 }
 
 .scroll-container {
-    display: flex;
-    overflow-x: auto; /* Habilita a rolagem horizontal */
-    padding: 10px 0;
-    white-space: nowrap;
-    -ms-overflow-style: none; /* Oculta a barra de rolagem no IE e Edge */
-    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
-  }
-  
-  .category-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 10px;
-    border-radius: 50%;
-    background-color: #FFF2D4; /* Ajuste a cor de fundo conforme necessário */
-    width: 60px;
-    height: 60px;
-    min-width: 60px; /* Garante que todos os botões tenham a mesma largura mínima */
-  }
- .more-button{
-    width: 60px;
-    height: 60px;
- }
-  .category-button ion-icon {
-    font-size: 32px;
-    color: #FFF2D4; /* Ajuste a cor do ícone conforme necessário */
-  }
-  
-  .fixed-size-card {
-    height: 250px; /* Define a altura fixa dos cards */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    background-color: #fef7ec; /* Ajusta a cor de fundo conforme necessário */
-  }
-  
-  .card-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%; /* Preenche toda a altura do card */
-  }
-  
-  .card-image {
-    width: 100px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .card-title {
-    margin: 10px 0;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
-  .card-unit {
-    color: orange;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .card-divider {
-    border: none;
-    border-top: 1px solid #ccc;
-    width: 80%;
-    margin: 10px 0;
-  }
-  
-  .card-quantity {
-    font-weight: bold;
-    font-size: 18px;
-  }
-  
+  display: flex;
+  overflow-x: auto; /* Habilita a rolagem horizontal */
+  padding: 10px 0;
+  white-space: nowrap;
+  -ms-overflow-style: none; /* Oculta a barra de rolagem no IE e Edge */
+  scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+}
+
+.category-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: #000000; /* Fundo preto */
+  width: 60px;
+  height: 60px;
+  min-width: 60px; /* Garante que todos os botões tenham a mesma largura mínima */
+}
+
+.more-button {
+  width: 60px;
+  height: 60px;
+}
+
+.category-button ion-icon {
+  font-size: 32px;
+  color: #FFFFFF; /* Ícone branco */
+}
+
+.fixed-size-card {
+  height: 250px; /* Define a altura fixa dos cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  background-color: #FFFFFF; /* Fundo branco */
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* Preenche toda a altura do card */
+}
+
+.card-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  margin: 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000; /* Texto preto */
+}
+
+.card-unit {
+  color: #000000; /* Texto preto */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 80%;
+  margin: 10px 0;
+}
+
+.card-quantity {
+  font-weight: bold;
+  font-size: 18px;
+  color: #000000; /* Texto preto */
+}
