@@ -12,53 +12,41 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Filtro de Data com input tipo date -->
+<ion-item>
+  <ion-label>Data</ion-label>
+  <input type="date" [(ngModel)]="DataSelecionada" (change)="filterByDate(DataSelecionada)" />
+</ion-item>
+
 <ion-content [fullscreen]="true">
   <ion-list>
-    <!-- Outubro Section -->
+    <!-- Seção de Movimentações -->
     <ion-item-divider color="light">
-      <ion-label>Outubro</ion-label>
+      <ion-label>Movimentações</ion-label>
     </ion-item-divider>
 
-    <ion-item>
-      <ion-avatar slot="start">
-        <ion-icon name="archive-outline" class="icon-style"></ion-icon>
-      </ion-avatar>
-      <ion-label>
-        <h2>Estoque Criado</h2>
-        <p>Estoque X Criado</p>
-        <p>Criado por Administrador</p>
-      </ion-label>
-      <ion-note slot="end">Segunda, 01/10/2024</ion-note>
-    </ion-item>
-
-    <!-- Setembro Section -->
-    <ion-item-divider color="light">
-      <ion-label>Setembro</ion-label>
-    </ion-item-divider>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <ion-icon name="list-outline" class="icon-style"></ion-icon>
-      </ion-avatar>
-      <ion-label>
-        <h2>Categoria Criada</h2>
-        <p>Categoria "Bebidas" Criada</p>
-        <p>Criado por Administrador</p>
-      </ion-label>
-      <ion-note slot="end">Terça, 25/09/2024</ion-note>
-    </ion-item>
-
-    <ion-item>
-      <ion-avatar slot="start">
-        <ion-icon name="restaurant-outline" class="icon-style"></ion-icon>
-      </ion-avatar>
-      <ion-label>
-        <h2>Produto Criado - Categoria Frutas</h2>
-        <p>Produto "Maçã" Criado</p>
-        <p>Criado por Administrador</p>
-      </ion-label>
-      <ion-note slot="end">Sexta, 14/09/2024</ion-note>
-    </ion-item>
+    <ng-container *ngIf="filteredMovimentacoes.length > 0; else noData">
+      <ion-item *ngFor="let movimentacao of filteredMovimentacoes">
+        <ion-avatar slot="start">
+          <ion-icon name="archive-outline" class="icon-style"></ion-icon>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ movimentacao.id_produto }}</h2>
+          <p>Quantidade: {{ movimentacao.quantidade }}</p>
+          <p>Tipo: {{ movimentacao.tipo }}</p>
+        </ion-label>
+        <ion-note slot="end">{{ movimentacao.data_movimentacao | date: 'fullDate' }}</ion-note>
+      </ion-item>
+    </ng-container>
 
   </ion-list>
+
+  <!-- Caso nenhuma movimentação seja encontrada -->
+  <ng-template #noData>
+    <ion-item>
+      <ion-label>
+        <h2>Nenhuma movimentação encontrada para a data selecionada.</h2>
+      </ion-label>
+    </ion-item>
+  </ng-template>
 </ion-content>

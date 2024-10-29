@@ -1,0 +1,28 @@
+<ion-toolbar>
+  <ion-title>Saída de Produtos</ion-title>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" class="options-button" href="/">
+      <img src="assets/icon/icons8-voltar-50.png" alt="Voltar">
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-item>
+      <ion-label position="floating">Selecionar Produto</ion-label>
+      <ion-select [(ngModel)]="produtoSelecionado" name="produto">
+        <ion-select-option *ngFor="let produto of produtos" [value]="produto.id_produto">
+          {{ produto.nome }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Quantidade</ion-label>
+      <ion-input type="number" [(ngModel)]="quantidade" name="quantidade"></ion-input>
+    </ion-item>
+
+    <ion-button class="salvar-button" expand="full" (click)="confirmarSaida()">Confirmar Saída</ion-button>
+  </ion-card>
+</ion-content>
