@@ -4,9 +4,12 @@ ion-toolbar {
  }
  
  .more-button{
-     width: 60px;
-     height: 60px;
-  }
+   width: 60px;
+   height: 60px;
+   --color: #000;
+   background-color: #918585;
+   border-radius: 5px;
+}
  
   ion-input {
      background-color: #f4f5f9;

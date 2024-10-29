@@ -6,7 +6,7 @@
     <ion-toolbar>
       <ion-card>
         <ion-card-content>
-          <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; justify-content: space-between;" (click)="abrirMovimentacao()">
             <div>
               <p style="font-size: 16px;">"NOME"</p>
               <p style="font-size: 20px; font-weight: bold; margin-top: 50%;">
@@ -14,3 +14,99 @@
               </p>
             </div>
             <div>
+              <!-- Imagem do entregador -->
+              <img src="assets/img/vctrly-business-illustrations-12.png" alt="Entregador"
+                style="width: 80px; height: auto;">
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-toolbar>
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-size: 20px; font-weight: bold; margin-left:6%;">
+      <p>Categorias</p>
+    </div>
+    <div>
+      <ion-button fill="clear" class="more-button" href="/categorias">
+        <img src="assets/icon/plus.png" alt="">
+      </ion-button>
+    </div>
+  </div>
+  <div class="scroll-container">
+    <!-- Botões de categoria -->
+    <ion-button fill="clear" class="category-button">
+      <img src="assets/icon/salad.png" alt="">
+    </ion-button>
+    <ion-button fill="clear" class="category-button">
+      <img src="assets/icon/apple.png" alt="">
+    </ion-button>
+    <ion-button fill="clear" class="category-button">
+      <img src="assets/icon/soda.png" alt="">
+    </ion-button>
+    <ion-button fill="clear" class="category-button">
+      <img src="assets/icon/bakery.png" alt="">
+    </ion-button>
+    <ion-button fill="clear" class="category-button">
+      <img src="assets/icon/beef.png" alt="">
+    </ion-button>
+    <ion-button fill="clear" class="category-button">
+      <img src="assets/icon/candy.png" alt="">
+    </ion-button>
+    <!-- Adicione mais botões conforme necessário -->
+  </div>
+  <ion-grid>
+    <ion-row>
+      <!-- Primeiro Card -->
+      <ion-col size="6" size-md="3">
+        <ion-card class="fixed-size-card">
+          <ion-card-content class="card-content">
+            <img src="assets/icon/watermelon-smoothie.png" alt="Suco de Melancia" class="card-image">
+            <h2 class="card-title">Suco de Melancia</h2>
+            <p class="card-unit">Uni.</p>
+            <hr class="card-divider">
+            <p class="card-quantity" style="color: red;">10</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Segundo Card -->
+      <ion-col size="6" size-md="3">
+        <ion-card class="fixed-size-card">
+          <ion-card-content class="card-content">
+            <img src="assets/icon/vegetable.png" alt="Brócolis" class="card-image">
+            <h2 class="card-title">Brócolis</h2>
+            <p class="card-unit">Kg.</p>
+            <hr class="card-divider">
+            <p class="card-quantity">5</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Terceiro Card -->
+      <ion-col size="6" size-md="3">
+        <ion-card class="fixed-size-card">
+          <ion-card-content class="card-content">
+            <img src="assets/icon/item3.png" alt="Item 3" class="card-image">
+            <h2 class="card-title">Item 3</h2>
+            <p class="card-unit">Unidade</p>
+            <hr class="card-divider">
+            <p class="card-quantity" style="color: red;">20</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+      <!-- Quarto Card -->
+      <ion-col size="6" size-md="3">
+        <ion-card class="fixed-size-card">
+          <ion-card-content class="card-content">
+            <img src="assets/icon/item4.png" alt="Item 4" class="card-image">
+            <h2 class="card-title">Item 4</h2>
+            <p class="card-unit">Litros</p>
+            <hr class="card-divider">
+            <p class="card-quantity">15</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

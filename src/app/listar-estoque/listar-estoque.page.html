@@ -1,0 +1,27 @@
+<ion-toolbar>
+  <ion-title>Lista de Estoques</ion-title>
+  <ion-buttons slot="start">
+    <ion-button fill="clear" class="options-button" href="tabs/tab4">
+      <img src="assets/icon/icons8-voltar-50.png" alt="Filtro">
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="estoques.length > 0">
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let estoque of estoques">
+          <ion-label>
+            <h2>{{ estoque.nome }}</h2>
+          </ion-label>
+          <ion-button color="primary" (click)="editEstoque(estoque)">Editar</ion-button>
+          <ion-button color="danger" (click)="deleteEstoque(estoque.id_estoque)">Excluir</ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+

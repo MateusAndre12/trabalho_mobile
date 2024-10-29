@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../services/categoria.service';
 import { Categoria } from '../model/categoria.model';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCard, IonCardSubtitle, IonInput, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonButton, IonCard, IonCardSubtitle, IonInput, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel, IonButtons } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-criar-categorias',
   templateUrl: './criar-categorias.page.html',
   styleUrls: ['./criar-categorias.page.scss'],
   standalone: true,
-  imports: [IonLabel, IonItem, IonList, IonCardContent, IonCardTitle, IonCardHeader, IonInput, IonCardSubtitle, IonCard, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, FormsModule, CommonModule]
+  imports: [IonButtons, IonLabel, IonItem, IonList, IonCardContent, IonCardTitle, IonCardHeader, IonInput, IonCardSubtitle, IonCard, IonButton, IonContent, IonHeader, IonTitle, IonToolbar, FormsModule, CommonModule]
 
 })
 export class CriarCategoriasPage implements OnInit {
@@ -18,9 +19,17 @@ export class CriarCategoriasPage implements OnInit {
   categoriaForm: Categoria = new Categoria('', '');
   isEditando: boolean = false;
 
-  constructor(private categoriaService: CategoriaService) { }
+  constructor(private categoriaService: CategoriaService, private router: Router) { }
 
   ngOnInit() {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state) {
+      const { categoria } = navigation.extras.state as { categoria: Categoria };
+      if (categoria) {
+        this.categoriaForm = { ...categoria };  // Clona o produto recebido
+        this.isEditando = true;  // Muda para o modo de edição
+      }
+    }
     this.carregarCategorias();
   }
 
@@ -51,22 +60,6 @@ export class CriarCategoriasPage implements OnInit {
         .catch(err => console.error(err));
     }
   }
-
-  editarCategoria(categoria: Categoria) {
-    this.categoriaForm = { ...categoria }; // Clona a categoria para edição
-    this.isEditando = true;
-  }
-
-  deletarCategoria(id_categoria: number) {
-    console.log('Deletando categoria com ID:', id_categoria);
-    this.categoriaService.deleteCategoria(id_categoria)
-      .then(msg => {
-        console.log(msg);
-        this.carregarCategorias();
-      })
-      .catch(err => console.error(err));
-  }
-
   resetForm() {
     this.categoriaForm = new Categoria('', '');
     this.isEditando = false;

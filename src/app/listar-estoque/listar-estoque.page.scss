@@ -1,0 +1,73 @@
+ion-toolbar {
+    --background: #FFF2D4;
+    --color: black;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+ion-list {
+    margin: 10px;
+}
+
+.options-button {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+ion-card {
+    --background: #FFF2D4;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+ion-card-title {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #451B05;
+}
+
+.card-image {
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+ion-card-subtitle {
+    font-size: 14px;
+    color: #451B05;
+}
+
+ion-button {
+    color: #8b572a;
+}
+
+.more-and-less {
+    margin-top: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;  /* Alinha os botões à direita */
+    justify-content: flex-end;
+    position: absolute;
+    right: 0px;  /* Ajuste para posicionar corretamente à direita */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente dentro do card */
+}
+
+
+.less {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;  /* Espaçamento entre os botões */
+}
+.more{
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;  /* Espaçamento entre os botões */
+}
+ion-icon {
+    font-size: 24px;
+}

@@ -5,8 +5,8 @@
         <p style="font-weight: bold; color:black">Criar Produto</p>
       </div>
       <div>
-        <ion-button fill="clear" class="more-button">
-          <img src="assets/icon/plus.png" alt="">
+        <ion-button fill="clear" class="more-button" href="tabs/tab2">
+          <img src="assets/icon/icons8-lista-50.png" alt="">
         </ion-button>
       </div>
     </div>
@@ -18,23 +18,30 @@
     <div style="padding: 20px;">
       <ion-card-subtitle class="label">Nome do Produto:</ion-card-subtitle>
       <br>
-      <ion-card-subtitle><ion-input placeholder="Nome:" [(ngModel)]="produto.nome"></ion-input></ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-input placeholder="Nome:" [(ngModel)]="produto.nome"></ion-input>
+      </ion-card-subtitle>
     </div>
   </ion-card>
 
   <ion-card>
-    <div style="padding: 20px;">
-      <ion-card-subtitle class="label">Estoque(Id):</ion-card-subtitle>
-      <br>
-      <ion-card-subtitle><ion-input placeholder="Insira aqui:" [(ngModel)]="produto.id_estoque"></ion-input></ion-card-subtitle>
-    </div>
+    <ion-item>
+      <ion-label>Estoque</ion-label>
+      <ion-select [(ngModel)]="produto.id_estoque" name="id_estoque" interface="popover" required>
+        <ion-select-option *ngFor="let estoque of estoques" [value]="estoque.id_estoque">
+          {{ estoque.nome }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
   </ion-card>
 
   <ion-card>
     <div style="padding: 20px;">
       <ion-card-subtitle class="label">Quantidade:</ion-card-subtitle>
       <br>
-      <ion-card-subtitle><ion-input placeholder="Insira aqui:" [(ngModel)]="produto.quantidade"></ion-input></ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-input placeholder="Insira aqui:" [(ngModel)]="produto.quantidade"></ion-input>
+      </ion-card-subtitle>
     </div>
   </ion-card>
 
@@ -42,7 +49,19 @@
     <div style="padding: 20px;">
       <ion-card-subtitle class="label">Quantidade Minima:</ion-card-subtitle>
       <br>
-      <ion-card-subtitle><ion-input placeholder="Insira aqui:" [(ngModel)]="produto.quantidade_minima"></ion-input></ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-input placeholder="Insira aqui:" [(ngModel)]="produto.quantidade_minima"></ion-input>
+      </ion-card-subtitle>
+    </div>
+  </ion-card>
+
+  <ion-card>
+    <div style="padding: 20px;">
+      <ion-card-subtitle class="label">Data de Validade:</ion-card-subtitle>
+      <br>
+      <ion-card-subtitle>
+        <ion-input placeholder="Insira aqui:" [(ngModel)]="produto.data_validade"></ion-input>
+      </ion-card-subtitle>
     </div>
   </ion-card>
 
@@ -50,7 +69,9 @@
     <div style="padding: 20px;">
       <ion-card-subtitle class="label">Valor:</ion-card-subtitle>
       <br>
-      <ion-card-subtitle><ion-input placeholder="Insira aqui:" [(ngModel)]="produto.valor"></ion-input></ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-input placeholder="Insira aqui:" [(ngModel)]="produto.valor"></ion-input>
+      </ion-card-subtitle>
     </div>
   </ion-card>
 
@@ -58,7 +79,9 @@
     <div style="padding: 20px;">
       <ion-card-subtitle class="label">Codigo de Barras:</ion-card-subtitle>
       <br>
-      <ion-card-subtitle><ion-input placeholder="Insira aqui:" [(ngModel)]="produto.codigo_barras"></ion-input></ion-card-subtitle>
+      <ion-card-subtitle>
+        <ion-input placeholder="Insira aqui:" [(ngModel)]="produto.codigo_barras"></ion-input>
+      </ion-card-subtitle>
     </div>
   </ion-card>
 
@@ -67,23 +90,4 @@
       {{ isEditing ? 'Atualizar Produto' : 'Criar Produto' }}
     </ion-button>
   </div>
-
-  <ion-card *ngIf="produtos.length > 0">
-    <ion-card-header>
-      <ion-card-title>Lista de Produtos</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let produto of produtos">
-          <ion-label>
-            <h2>{{ produto.nome }} ({{ produto.codigo_barras }})</h2>
-            <p>Quantidade: {{ produto.quantidade }} - Valor: R$ {{ produto.valor }}</p>
-          </ion-label>
-          <ion-button color="primary" (click)="editProduto(produto)">Editar</ion-button>
-          <ion-button color="danger" (click)="deleteProdutoByNome(produto.nome)">Excluir</ion-button>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-
 </ion-content>

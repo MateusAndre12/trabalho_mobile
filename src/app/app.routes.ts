@@ -10,10 +10,6 @@ export const routes: Routes = [
     loadComponent: () => import('./categorias/categorias.page').then( m => m.CategoriasPage)
   },
   {
-    path: 'produto',
-    loadComponent: () => import('./produto/produto.page').then( m => m.ProdutoPage)
-  },
-  {
     path: 'criar-produto',
     loadComponent: () => import('./criar-produto/criar-produto.page').then( m => m.CriarProdutoPage)
   },
@@ -24,10 +20,20 @@ export const routes: Routes = [
   {
     path: 'criar-categorias',
     loadComponent: () => import('./criar-categorias/criar-categorias.page').then( m => m.CriarCategoriasPage)
-  },  {
+  },
+  {
     path: 'movimentacao',
     loadComponent: () => import('./movimentacao/movimentacao.page').then( m => m.MovimentacaoPage)
+  },
+  {
+    path: 'listar-estoque',
+    loadComponent: () => import('./listar-estoque/listar-estoque.page').then( m => m.ListarEstoquePage)
+  },
+  {
+    path: 'saida-produtos',
+    loadComponent: () => import('./saida-produtos/saida-produtos.page').then( m => m.SaidaProdutosPage)
   }
+
 
 
 ];

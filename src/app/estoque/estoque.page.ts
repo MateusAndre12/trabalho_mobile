@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { EstoqueService } from '../services/estoque.service';
 import { Estoque } from '../model/estoque.model';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonCard, IonCardSubtitle, IonInput, IonButton, IonCardHeader, IonCardTitle, IonCardContent, IonList, IonItem, IonLabel } from '@ionic/angular/standalone';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-estoque',
   templateUrl: './estoque.page.html',
@@ -17,9 +17,17 @@ export class EstoquePage implements OnInit {
   estoques: Estoque[] = [];  // Lista de estoques
   isEditing: boolean = false;  // Controle para modo de edição
 
-  constructor(private estoqueService: EstoqueService) { }
+  constructor(private estoqueService: EstoqueService, private router: Router) { }
 
   ngOnInit() {
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state) {
+      const { estoque } = navigation.extras.state as { estoque: Estoque };
+      if (estoque) {
+        this.estoque = { ...estoque };  // Clona o produto recebido
+        this.isEditing = true;  // Muda para o modo de edição
+      }
+    }
     this.loadEstoques();
   }
   saveEstoque() {
@@ -47,9 +55,9 @@ export class EstoquePage implements OnInit {
   // Função para atualizar o estoque
   updateEstoque() {
     this.estoqueService.updateEstoque(this.estoque).then(() => {
-      this.loadEstoques();  // Atualiza a lista de estoques
-      this.resetForm();  // Limpa o formulário
-      this.isEditing = false;  // Sai do modo de edição
+      this.loadEstoques();  
+      this.resetForm();  
+      this.isEditing = false;  
     }).catch(error => {
       console.error('Erro ao atualizar estoque:', error);
     });
@@ -64,13 +72,6 @@ export class EstoquePage implements OnInit {
     });
   }
 
-  // Função para editar o estoque (carregar os dados no formulário)
-  editEstoque(estoque: Estoque) {
-    this.estoque = { ...estoque };  // Clona o estoque para edição
-    this.isEditing = true;  // Ativa o modo de edição
-  }
-
-  // Função para limpar o formulário
   resetForm() {
     this.estoque = new Estoque('');  // Reseta o formulário
     this.isEditing = false;  // Sai do modo de edição

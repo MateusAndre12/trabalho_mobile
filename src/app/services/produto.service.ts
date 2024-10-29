@@ -37,19 +37,28 @@ export class ProdutoService {
   }
 
   // Adicionar produto
-  addProduto(produto: Produto): Promise<string> {
-    return this.openDatabase().then(db => {
-      return new Promise((resolve, reject) => {
-        const transaction = db.transaction([this.objectStoreName], 'readwrite');
-        const objectStore = transaction.objectStore(this.objectStoreName);
+  // Adicionar produto
+addProduto(produto: Produto): Promise<Produto> {
+  return this.openDatabase().then(db => {
+    return new Promise((resolve, reject) => {
+      const transaction = db.transaction([this.objectStoreName], 'readwrite');
+      const objectStore = transaction.objectStore(this.objectStoreName);
 
-        const request = objectStore.add(produto);
+      const request = objectStore.add(produto);
 
-        request.onsuccess = () => resolve('Produto adicionado com sucesso!');
-        request.onerror = (event) => reject((event.target as IDBRequest).error);
-      });
+      request.onsuccess = () => {
+        const produtoAdicionado: Produto = {
+          ...produto,
+          id_produto: Number(request.result),
+        };
+        resolve(produtoAdicionado);
+      };
+
+      request.onerror = (event) => reject((event.target as IDBRequest).error);
     });
-  }
+  });
+}
+
 
   // Listar todos os produtos
   getProdutos(): Promise<Produto[]> {

@@ -4,6 +4,11 @@
       <div style="font-size: 20px; font-weight: bold; margin-left:6%;">
         <p style="font-weight: bold; color:black">Criar Estoque</p>
       </div>
+      <div>
+        <ion-button fill="clear" class="more-button" href="listar-estoque">
+          <img src="assets/icon/icons8-lista-50.png" alt="">
+        </ion-button>
+      </div>
     </div>
   </ion-toolbar>
 </ion-header>
@@ -25,21 +30,4 @@
     </ion-button>
   </div>
 
-  <!-- Listagem de Estoques -->
-  <ion-card *ngIf="estoques.length > 0">
-    <ion-card-header>
-      <ion-card-title>Lista de Estoques</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let estoque of estoques">
-          <ion-label>
-            <h2>{{ estoque.nome }}</h2>
-          </ion-label>
-          <ion-button color="primary" (click)="editEstoque(estoque)">Editar</ion-button>
-          <ion-button color="danger" (click)="deleteEstoque(estoque.id_estoque)">Excluir</ion-button>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
 </ion-content>
